@@ -10,15 +10,16 @@ public class Main {
         int dato = teclado.nextInt();
         int[] vector = new int[dato];
         System.out.println("\nVector inicial hasta :" + dato);
+        imprimirVector(vector);
+        vector = generarPrimos(dato);
+        System.out.println("\nVector de primos hasta:" + dato);
+        imprimirVector(vector);
+    }
+
+    private static void imprimirVector(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
             if (i%10 == 0) System.out.println();
             System.out.print(i + 1 + "\t");
-        }
-        vector = generarPrimos(dato);
-        System.out.println("\nVector de primos hasta:" + dato);
-        for (int i = 0; i < vector.length; i++) {
-            if (i%10 == 0) System.out.println();
-            System.out.print(vector[i] + "\t");
         }
     }
 
