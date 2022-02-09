@@ -10,10 +10,17 @@ public class Main {
         int dato = teclado.nextInt();
         int[] vector = new int[dato];
         System.out.println("\nVector inicial hasta :" + dato);
+        llenarVector(vector);
         imprimirVector(vector);
         vector = generarPrimos(dato);
         System.out.println("\nVector de primos hasta:" + dato);
         imprimirVector(vector);
+    }
+
+    private static void llenarVector(int[] vector) {
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] = i + 1;
+        }
     }
 
     private static void imprimirVector(int[] vector) {
@@ -24,48 +31,57 @@ public class Main {
     }
 
     // Generar números primos de 1 a max
-    public static int[] generarPrimos (int max)
-    {
-        int i;
-        int j;
+    public static int[] generarPrimos (int max) {
         if (max >= 2) {
             // Declaraciones
             int dim = max + 1; // Tamaño del array
-            boolean[] esPrimo = new boolean[dim];
-            // Inicializar el array
-            for (i = 0; i < dim; i++) {
-                esPrimo[i] = true;
-            }
-            // Eliminar el 0 y el 1, que no son primos
-            esPrimo[0] = false;
-            esPrimo[1] = false;
-            // Criba
-            for (i = 2; i < Math.sqrt(dim) + 1; i++) {
-                if (esPrimo[i]) {
-                    // Eliminar los múltiplos de i
-                    for (j = 2 * i; j < dim; j += i)
-                        esPrimo[j] = false;
-                }
-            }
-            // ¿Cuántos primos hay?
-            int cuenta = 0;
-            for (i = 0; i < dim; i++) {
-                if (esPrimo[i]) {
-                    cuenta++;
-                }
-            }
-
-            // Rellenar el vector de números primos
-            int[] primos = new int[cuenta];
-            for (i = 0, j = 0; i < dim; i++) {
-                if (esPrimo[i]) {
-                    primos[j++] = i;
-                }
-            }
+            boolean[] esPrimo = inicializaVectorBoolean(dim); // Array con todos las posiciones a partir de la 2 true
+            esPrimo = encuentraPrimos(esPrimo); // Funcion que deja solo los primos como true
+            int[] primos = new int[cuentaPrimos(esPrimo)];
+            primos = llenaVectorPrimos(esPrimo, primos);
             return primos;
         } else { // max < 2
             return new int[0];
             // Vector vacío
         }
+    }
+
+    private static boolean[] inicializaVectorBoolean(int dim) {
+        boolean[] vector = new boolean[dim];
+        for (int i = 2; i < dim; i++) {
+            vector[i] = true;
+        }
+        return vector;
+    }
+
+    private static boolean[] encuentraPrimos(boolean[] esPrimo) {
+        for (int i = 2; i <= Math.sqrt(esPrimo.length); i++) {
+            if (esPrimo[i]) {
+                // Eliminar los múltiplos de i
+                for (int j = 2 * i; j < esPrimo.length; j += i)
+                    esPrimo[j] = false;
+            }
+        }
+        return esPrimo;
+    }
+
+    private static int cuentaPrimos(boolean[] esPrimo) {
+        int cuenta = 0;
+        for (int i = 2; i < esPrimo.length; i++) {
+            if (esPrimo[i]) {
+                cuenta++;
+            }
+        }
+        return cuenta;
+    }
+
+    private static int[] llenaVectorPrimos(boolean[] esPrimo, int[] primos) {
+        int j = 0;
+        for (int i = 0; i < esPrimo.length; i++) {
+            if (esPrimo[i]) {
+                primos[j++] = i;
+            }
+        }
+        return primos;
     }
 }
