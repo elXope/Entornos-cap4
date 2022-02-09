@@ -19,7 +19,7 @@ public class Main {
     private static void imprimirVector(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
             if (i%10 == 0) System.out.println();
-            System.out.print(i + 1 + "\t");
+            System.out.print(vector[i] + "\t");
         }
     }
 
