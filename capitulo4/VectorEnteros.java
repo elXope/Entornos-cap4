@@ -12,7 +12,7 @@ public class VectorEnteros {
 
     /**
      * Constructor de la clase VectorEnteros.
-     * Tambien crea el vector con los números del 1 al valor dim.
+     * También crea el vector con los números del 1 al valor dim.
      * @param dim Número hasta el que llegará el vector.
      */
     public VectorEnteros(int dim) {
@@ -21,8 +21,8 @@ public class VectorEnteros {
     }
 
     /**
-     * Setter para el parametro dim.
-     * Tambien crea el vector con los números del 1 al valor dim.
+     * Setter para el parámetro dim.
+     * También crea el vector con los números del 1 al valor dim.
      * @param dim  Número hasta el que llegará el vector.
      */
     public void setDim(int dim) {
@@ -31,7 +31,7 @@ public class VectorEnteros {
     }
 
     /**
-     * @return Devuelve un vector de 1 hasta el valor del parametro previo "dim".
+     * @return Devuelve un vector de 1 hasta el valor del parámetro "dim".
      */
     public int[] getVector() {
         return this.vector;
@@ -45,7 +45,7 @@ public class VectorEnteros {
     }
 
     /**
-     * Metodo estatico que imprime un vector por filas de 10.
+     * Método estático que imprime un vector por filas de 10.
      * @param vector Vector parar imprimir.
      */
     public static void imprimirVector(int[] vector) {

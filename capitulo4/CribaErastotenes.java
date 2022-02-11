@@ -1,17 +1,30 @@
 package capitulo4;
 
+/**
+ * Clase que genera un vector de enteros primos hasta el número indicado por el usuario.
+ * @author Josep Rubert
+ * @version 1.0
+ */
 public class CribaErastotenes {
 
     private int nMax;
     private int dim;
     private boolean[] esPrimo;
 
+    /**
+     * Constructor de la clase CribaErastotenes.
+     * @param nMax Número máximo hasta el que buscar primos.
+     */
     public CribaErastotenes(int nMax) {
         this.nMax = nMax;
         this.dim = nMax + 1;
         this.inicializaVectorBoolean();
     }
 
+    /**
+     * Setter del atributo nMax.
+     * @param nMax Número maximo hasta el que buscar primos.
+     */
     public void setNMax(int nMax) {
         this.nMax = nMax;
         this.dim = nMax + 1;
@@ -25,6 +38,11 @@ public class CribaErastotenes {
         }
     }
 
+    /**
+     * Método que devuelve un vector de enteros con los primos del 1 al
+     * número especificado en el constructor o en el setter.
+     * @return vector de números primos.
+     */
     public int[] vectorPrimos() {
         this.ejecutaCribaErastotenes();
         return this.generaVectorPrimos();
