@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"capitulo4","l":"CribaErastotenes"},{"p":"capitulo4","l":"Main"},{"p":"capitulo4","l":"VectorEnteros"}]
